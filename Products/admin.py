@@ -8,9 +8,10 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {
         'slug': ['title']
     }
-    list_display = ['title', 'price', 'is_active', 'rating', 'short_description']
-    list_filter = ['price', 'is_active', 'rating', 'short_description']
-    list_editable = ['is_active', 'rating']
+
+    list_display = ['title', 'price', 'is_deleted', 'is_active', 'slug']
 
 
 admin.site.register(models.Product, ProductAdmin)
+admin.site.register(models.ProductCategory)
+admin.site.register(models.ProductTags)
