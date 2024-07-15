@@ -1,15 +1,21 @@
+{% load render_partial %}
+
 <!DOCTYPE html>
 <html lang="en">
-{% block head %}
 <head>
-    <meta charset="UTF-8">
-    <title>{% block title %}
-    {% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}صفحه اصلی{% endblock %}</title>
+    {% include 'includes/header_references.html' %}
 </head>
-{% endblock %}
+
 <body>
-    {% block content %}
-    	
-    {% endblock %}
+
+    {% render_partial 'Home.views.header_partial' %}
+    {% block content %}{% endblock %}
+    {% render_partial 'Home.views.footer_partial' %}
+    {% include 'includes/footer_references.html' %}
 </body>
 </html>
