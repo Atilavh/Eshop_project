@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Products.apps.ProductsConfig',
     'Home.apps.HomeConfig',
+    'Contact_module.apps.ContactModuleConfig',
     'django_render_partial'
 ]
 
