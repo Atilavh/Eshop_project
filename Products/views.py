@@ -11,12 +11,8 @@ def products_list(request):
     })
 
 
-# def ProductDetailView(request, slug):
-#     # try:
-#     #     product = product.objects.get(id=product_id)
-#     # except:
-#     #     raise Http404
-#     product = get_object_or_404(Product, slug=slug)
-#     return render(request, 'Products_detail/Products_detail.html', {
-#         'products': product
-#     })
+def product_detail(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+    return render(request, 'Products/product-details.html', {
+        'products': product
+    })
