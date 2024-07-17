@@ -3,7 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index_page, name='Home-page'),
-    path('contact-us', views.contact_page, name='Contact-page'),
 
     # Django_render_partial_URLS {
     # path('header-site', views.header_partial, name='header_partial'),
