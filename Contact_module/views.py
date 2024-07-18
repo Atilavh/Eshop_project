@@ -12,6 +12,8 @@ def contact_us_page(request):
     #     print(request.POST['subject'])
     #     print(request.POST['message'])
     #     return redirect(reverse('Home-page'))
+    # contact_form = ContactForm(request.POST or None)
+
     if request.method == 'POST':
         contact_form = ContactForm(request.POST)
         if contact_form.is_valid():
