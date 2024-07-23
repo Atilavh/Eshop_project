@@ -26,7 +26,9 @@
                                         <a href=""><img src="{% static 'images/product-details/similar3.jpg' %}" alt=""></a>
                                     </div>
                                     <div class="item">
-                                        <a href=""><img src="{% static 'images/product-details/similar1.jpg' %}{% static 'images/product-details/similar1.jpg' %}" alt=""></a>
+                                        <a href=""><img src="
+                                                {% static 'images/product-details/similar1.jpg' %}{% static 'images/product-details/similar1.jpg' %}"
+                                                        alt=""></a>
                                         <a href=""><img src="{% static 'images/product-details/similar2.jpg' %}" alt=""></a>
                                         <a href=""><img src="{% static 'images/product-details/similar3.jpg' %}" alt=""></a>
                                     </div>
@@ -52,27 +54,31 @@
                             <div class="product-information"><!--/product-information-->
                                 <img src="{% static 'images/product-details/new.png' %}" class="newarrival" alt="">
                                 <div>
-                                    <h2>{{ products.title }}</h2>
-                                    <p>شناسـه : {{ products.id }}</p>
+                                    <h2>{{ product.title }}</h2>
+                                    <p>شناسـه : {{ product.id }}</p>
                                 </div>
                                 <div>
 									<span>
-										<span>قیمت :{{ products.price }}تومان</span>
+										<span>قیمت :{{ product.price }}تومان</span>
 									</span>
                                     <span>
 										<label>تعداد :</label>
-										<input type="text" value="3" class="search_box">
-										<button type="button" class="btn btn-fefault cart">
-											<i class="fa fa-shopping-cart"></i>
-											افـزودن به سبـد خریـد
-										</button>
+
+                                        <form action="{% url 'products-favorite' %}" method="post">
+                                            {% csrf_token %}
+										    <input type="hidden" name="product_id" value="{{ product.id }}" class="search_box">
+										    <button type="submit" class="btn btn-fefault cart">
+											    <i class="fa fa-shopping-cart"></i>
+											         ثبت محصول به عنوان کالا محبوب
+										    </button>
+                                        </form>
 									</span>
                                 </div>
                                 <div>
                                     <p><b>موجـودی :</b> در انبـار موجود می باشد</p>
                                     <p><b>شرایـط :</b> جدیـد</p>
                                     {% if products.Brand %}
-                                        <p><b>برنـد :</b>{{ products.Brand.title }}</p>
+                                        <p><b>برنـد :</b>{{ product.Brand.title }}</p>
                                     {% endif %}
                                 </div>
                                 <span class="socials-share share">
@@ -312,7 +318,8 @@
 											<input type="email" placeholder="آدرس ایمیـل">
 										</span>
                                         <textarea name=""></textarea>
-                                        <b>رتبـه : </b> <img src="{% static 'images/product-details/rating.png' %}" alt="">
+                                        <b>رتبـه : </b> <img src="{% static 'images/product-details/rating.png' %}"
+                                                             alt="">
                                         <button type="button" class="btn btn-default pull-left">
                                             ارسـال
                                         </button>
