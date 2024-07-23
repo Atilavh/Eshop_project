@@ -16,7 +16,7 @@
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">محصولات خرده</h2>
-						{% for product in product_list %}
+						{% for product in products %}
 							{% include 'includes/products_list_partial.html' with product=product %}
 						{% endfor %}
                         <div class="clearfix"></div>
