@@ -70,4 +70,4 @@ class ContactUsModelForm(forms.ModelForm):
 
 
 class ProfilePhotoForm(forms.Form):
-    image = forms.FileField()
+    user_image = forms.ImageField(widget=forms.FileInput())
