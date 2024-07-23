@@ -47,7 +47,7 @@ class Product(models.Model):
     is_deleted = models.BooleanField(verbose_name='حذف شده / نشده', default=False)
 
     def get_absolute_url(self):
-        return reverse('Detail', args=[self.slug])
+        return reverse('products-details', args=[self.slug])
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
