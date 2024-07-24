@@ -37,9 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Internal apps
+    'accounts_module.apps.AccountsModuleConfig',
     'Products.apps.ProductsConfig',
     'Home.apps.HomeConfig',
     'Contact_module.apps.ContactModuleConfig',
+    # External apps
     'django_render_partial'
 ]
 
@@ -78,6 +81,8 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+
+AUTH_USER_MODEL = 'accounts_module.User'
 
 DATABASES = {
     'default': {
