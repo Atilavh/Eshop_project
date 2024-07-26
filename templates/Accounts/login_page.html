@@ -1,0 +1,34 @@
+{% extends 'layout/Base.html' %}
+
+{% block title %}
+    صفحه ثبت نام
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+		<section id="form"><!--form-->
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="signup-form"><!--sign up form-->
+						<h2>ورود به حساب کاربری</h2>
+						<form action="{% url 'LoginForm' %}" method="post">
+                            {% csrf_token %}
+
+                        {# email --> #}
+                            {{ login_form.email.label_tag }}
+                            {{ login_form.email }}
+                            {{ login_form.email.error_messages }}
+                            {# <-- #}
+                        {# password --> #}
+                            {{ login_form.password.label_tag }}
+                            {{ login_form.password }}
+                            {{ login_form.password.error_messages }}
+                            {# <-- #}
+							<button type="submit" class="btn btn-default">ورود</button>
+						</form>
+					</div><!--/sign up form-->
+				</div>
+			</div>
+		</section>
+	</div>
+{% endblock %}
