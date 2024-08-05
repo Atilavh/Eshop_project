@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 from django.views.generic.base import TemplateView
@@ -24,3 +25,5 @@ def header_partial(request):
 
 def footer_partial(request):
     return render(request, 'footer_render_partial/footer_partial.html')
+
+
