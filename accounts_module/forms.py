@@ -44,16 +44,22 @@ class LoginForm(forms.Form):
     )
 
 
-class Sing_up(forms.Form):
+class ForgotForm(forms.Form):
     email = forms.EmailField(
-        label='Email',
+        label='ایمیل',
         widget=forms.EmailInput(),
+        validators=[
+            validators.MaxLengthValidator(100),
+        ]
     )
+
+
+class ResetPasswordForm(forms.Form):
     password = forms.CharField(
-        label='password',
-        widget=forms.PasswordInput(),
+        label='کلمه عبور',
+        widget=forms.PasswordInput
     )
     confirm_password = forms.CharField(
-        label='confirm_password',
-        widget=forms.PasswordInput(),
+        label='تایید کلمه عبور',
+        widget=forms.PasswordInput
     )
