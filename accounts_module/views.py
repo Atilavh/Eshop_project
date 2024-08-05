@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model
 from django.utils.crypto import get_random_string
 from django.http import Http404
-from accounts_module.forms import RegistrationForm, LoginForm, Sing_up
+from accounts_module.forms import RegistrationForm, LoginForm, ForgotForm
 from django.urls import reverse
 from accounts_module.models import User
+from django.http import HttpResponse, HttpResponseRedirect
 
 
 def Register(request):
@@ -45,7 +46,7 @@ def confirm_register(request, email_active_code):
         raise Http404
 
 
-def login(request):
+def login(request: object) -> object:
     login_form = LoginForm(request.POST)
     if login_form.is_valid():
         user_email = login_form.cleaned_data.get('email')
@@ -71,3 +72,29 @@ def login(request):
     return render(request, 'Accounts/login_page.html', context)
 
 
+def forgot_pass(request):
+    ForgetPage = ForgotForm(request.POST)
+    if ForgetPage.is_valid():
+        user_email = ForgetPage.cleaned_data.get('email')
+        user: User = User.objects.filter(email__iexact=user_email).first()
+        if user is not None:
+            pass
+    context = {
+        'ForgetPage': ForgetPage
+    }
+
+    return render(request, 'Accounts/forgot_pass_page.html', context)
+
+
+def ResetPassword(request):
+    reset = ForgotForm(request.POST)
+    if reset.is_valid():
+        user_email = reset.cleaned_data.get('email')
+        user: User = User.objects.filter(email__iexact=user_email).first()
+        if user is not None:
+            pass
+    context = {
+        'reset': reset
+    }
+
+    return render(request, 'Accounts/forgot_pass_page.html', context)
