@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Products.apps.ProductsConfig',
     'Home.apps.HomeConfig',
     'Contact_module.apps.ContactModuleConfig',
+    'article_module.apps.ArticleModuleConfig',
     # External apps
     'django_render_partial'
 ]
