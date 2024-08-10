@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
+from Home.models import SiteSetting
 from django.views.generic.base import TemplateView
 
 
@@ -15,6 +16,7 @@ class HomeView(TemplateView):
         context['message'] = 'this is message'
         return context
 
+
 # def index_page(request):
 #     return render(request, 'shared/index.html')
 
@@ -24,6 +26,9 @@ def header_partial(request):
 
 
 def footer_partial(request):
-    return render(request, 'footer_render_partial/footer_partial.html')
+    site_setting = SiteSetting.objects.all()
+    context = {
+        'site_setting': site_setting
+    }
 
-
+    return render(request, 'footer_render_partial/footer_partial.html', context)
